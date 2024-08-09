@@ -15,13 +15,16 @@ return new class extends Migration
             $table->id();
             $table->foreignId('trip_id')
                 ->references('id')
-                ->on('trips');
+                ->on('trips')
+                ->onDelete('cascade');
             $table->foreignId('product_id')
                 ->references('id')
-                ->on('products');
+                ->on('products')
+                ->onDelete('cascade');
             $table->integer('start_quantity');
             $table->integer('end_quantity')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

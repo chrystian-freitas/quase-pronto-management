@@ -13,15 +13,19 @@ return new class extends Migration
     {
         Schema::create('trips', function (Blueprint $table) {
             $table->id();
+            $table->uuid();
             $table->foreignId('created_by')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('cascade');
             $table->foreignId('trip_made_by')
                 ->references('id')
-                ->on('users');
+                ->on('users')
+                ->onDelete('cascade');
             $table->foreignId('route_id')
                 ->references('id')
-                ->on('routes');
+                ->on('routes')
+                ->onDelete('cascade');
             $table->timestamp('start_date');
             $table->decimal('start_total_load', 10, 2);
             $table->integer('start_km')->nullable();
@@ -31,6 +35,7 @@ return new class extends Migration
             $table->decimal('value_paid_by_employee', 10, 2)->nullable();
             $table->decimal('final_balance', 10, 2)->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

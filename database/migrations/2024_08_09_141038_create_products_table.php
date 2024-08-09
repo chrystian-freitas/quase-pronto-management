@@ -13,15 +13,18 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
+            $table->uuid();
             $table->foreignId('company_id')
                 ->references('id')
-                ->on('companies');
+                ->on('companies')
+                ->onDelete('cascade');
             $table->string('name');
             $table->string('description');
             $table->decimal('price', 10, 2);
             $table->string('barcode')->unique();
             $table->string('weight');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
