@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.text-collor-qp {
+    color: #fe503e !important;
+}
