@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" xmlns:livewire="http://www.w3.org/1999/html">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,24 +16,24 @@
     @livewireStyles
 </head>
     <body class="font-sans antialiased">
-    @livewireScripts
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900">
         @include('layouts.navigation')
+        @include('components.toast')
 
         <div class="flex">
-            <div id="menu" class="flex-none bg-gray-800 text-white  h-screen -translate-x-full w-0 invisible">
-                @include('components.layout.menu')
+            <div id="menu" class="flex-none bg-gray-800 text-white  h-screen">
+                <livewire:menu />
             </div>
             <a id="toggle-menu"
                class="flex items-center cursor-pointer p-0.5 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
-                <span id="svg-open" class="hidden">
+                <span id="svg-open">
                     <svg class="w-4 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                          width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                               d="m15 19-7-7 7-7"/>
                     </svg>
                 </span>
-                <span id="svg-close">
+                <span id="svg-close" class="hidden">
                     <svg class="w-4 h-6 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                          width="24" height="24" fill="none" viewBox="0 0 24 24">
                         <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -45,6 +45,7 @@
             <main id="content" class="flex-1 bg-gray-200 p-4">
                 {{ $slot }}
             </main>
+            @livewireScripts
         </div>
     </div>
         <script>
@@ -77,7 +78,6 @@
                 toggleMenu();
             });
 
-            toggleMenu();
 
         </script>
     </body>
