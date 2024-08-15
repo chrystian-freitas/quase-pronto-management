@@ -23,6 +23,13 @@ class ListUsers extends Component
                 'content' => 'Usuário criado com sucesso.'
             ]);
         }
+
+        if (session()->pull('user-updated') || session()->pull('password-updated')) {
+            $this->dispatch('notify', [
+                'type' => 'success',
+                'content' => 'Usuário atualizado com sucesso.'
+            ]);
+        }
     }
 
     public function updating()

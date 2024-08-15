@@ -38,6 +38,9 @@
                             Função
                         </th>
                         <th scope="col" class="px-6 py-3">
+                            Status
+                        </th>
+                        <th scope="col" class="px-6 py-3">
                             Ações
                         </th>
                     </tr>
@@ -55,10 +58,21 @@
                                 {{ $user->email }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $user->role }}
+                                {{
+                                    match ($user->role) {
+                                        'admin' => 'Administrador',
+                                        'user' => 'Usuário',
+                                        'seller' => 'Vendedor',
+                                        'driver' => 'Motorista',
+                                        default => 'Função não encontrada'
+                                    }
+                                 }}
                             </td>
                             <td class="px-6 py-4">
-                                <a href="#" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                {{ $user->status === 1 ? 'Ativo' : 'Inativo' }}
+                            </td>
+                            <td class="px-6 py-4">
+                                <a href="users/{{$user->uuid}}/edit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
                             </td>
                         </tr>
                     @endforeach

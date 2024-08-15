@@ -60,10 +60,6 @@ class CreateUser extends Component
 
     public function render(): View
     {
-        $this->dispatch('notify', [
-            'type' => 'error',
-            'content' => 'Ocorreu um erro ao criar esse usuário.'
-        ]);
         return view('livewire.users.create-user');
     }
 }
