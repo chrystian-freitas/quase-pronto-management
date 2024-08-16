@@ -6,7 +6,7 @@
 
     </header>
 
-    <form wire:submit="storeUser">
+    <form wire:submit="storeUser" wire:confirm="Você realmente deseja criar um usuário?">
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Nome')" />
@@ -75,4 +75,5 @@
             </x-primary-button>
         </div>
     </form>
+    <div wire:loading>@include('components.loading')</div>
 </section>

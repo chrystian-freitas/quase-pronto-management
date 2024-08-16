@@ -6,7 +6,7 @@
 
     </header>
 
-    <form wire:submit="updatePassword" class="mt-6 space-y-6">
+    <form wire:submit="updatePassword" class="mt-6 space-y-6" wire:confirm="Você realmente deseja atualizar a senha desse usuário?">
         <div>
             <x-input-label for="update_password_password" :value="__('Nova Senha')" />
             <x-text-input id="update_password_password" wire:model="password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
@@ -23,4 +23,5 @@
             <x-primary-button type="submit">{{ __('Salvar') }}</x-primary-button>
         </div>
     </form>
+    <div wire:loading>@include('components.loading')</div>
 </section>

@@ -37,6 +37,11 @@ class UpdateUserPassword extends Component
         }
     }
 
+    protected $messages = [
+        'password.min' => 'A senha deve ter no mínimo 8 caracteres.',
+        'password.same' => 'As senhas não conferem.'
+    ];
+
     public function mount()
     {
         //get uuid from url

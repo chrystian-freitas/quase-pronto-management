@@ -24,6 +24,16 @@ class CreateUser extends Component
     #[Validate('required|string|unique:users,cpf')]
     public $cpf;
 
+    protected $messages = [
+        '*.required' => 'Esse campo é obrigatório.',
+        'email.email' => 'Informe um email válido.',
+        'email.unique' => 'Esse email já está em uso.',
+        'password.min' => 'A senha deve ter no mínimo 8 caracteres.',
+        'password.same' => 'As senhas não conferem.',
+        'role.string' => 'O valor informado não é válido.',
+        'cpf.unique' => 'Esse CPF já está em uso.'
+    ];
+
     public function storeUser()
     {
         $this->validate();

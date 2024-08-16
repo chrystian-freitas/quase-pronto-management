@@ -6,7 +6,7 @@
 
     </header>
 
-    <form wire:submit="updateUserInfo">
+    <form wire:submit="updateUserInfo" wire:confirm="Você realmente deseja atualizar esse usuário?">
         <!-- Name -->
         <div>
             <x-input-label for="name" :value="__('Nome')" />
@@ -55,9 +55,11 @@
                 {{ __('Cancelar') }}
             </a>
 
-            <x-primary-button class="ms-4">
+            <x-primary-button  class="ms-4">
                 {{ __('Salvar') }}
             </x-primary-button>
+
         </div>
     </form>
+    <div wire:loading>@include('components.loading')</div>
 </section>

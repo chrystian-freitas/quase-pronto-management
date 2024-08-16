@@ -35,6 +35,14 @@ class EditUser extends Component
         $this->status = $user->status;
     }
 
+    protected $messages = [
+        '*.required' => 'Esse campo é obrigatório.',
+        'email.email' => 'Informe um email válido.',
+        'email.unique' => 'Esse email já está em uso.',
+        'role.string' => 'O valor informado não é válido.',
+        'cpf.unique' => 'Esse CPF já está em uso.'
+    ];
+
     public function updateUserInfo()
     {
         $this->validate();

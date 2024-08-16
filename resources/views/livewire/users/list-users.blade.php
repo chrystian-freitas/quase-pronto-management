@@ -72,7 +72,7 @@
                                 {{ $user->status === 1 ? 'Ativo' : 'Inativo' }}
                             </td>
                             <td class="px-6 py-4">
-                                <a href="users/{{$user->uuid}}/edit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                <a href="users/{{$user->uuid}}/edit" class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Editar</a>
                             </td>
                         </tr>
                     @endforeach
