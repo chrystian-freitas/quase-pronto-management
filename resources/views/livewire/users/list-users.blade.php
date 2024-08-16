@@ -77,8 +77,10 @@
                         </tr>
                     @endforeach
                     </tbody>
-                    {{$users->links()}}
                 </table>
+                <div class="p-3">
+                    {{$users->links()}}
+                </div>
             </div>
         </div>
     </main>
