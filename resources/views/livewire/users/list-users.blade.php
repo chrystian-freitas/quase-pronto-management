@@ -78,7 +78,7 @@
                     @endforeach
                     </tbody>
                 </table>
-                <div class="p-3">
+                <div class="p-6">
                     {{$users->links()}}
                 </div>
             </div>
