@@ -1,9 +1,9 @@
-<aside id="sidebar-multi-level-sidebar" class="z-40 w-64 h-screen" aria-label="Sidebar" x-data="{ activeItem: '' }" x-init="
+<aside id="sidebar-multi-level-sidebar" class="z-40 w-full h-screen" aria-label="Sidebar" x-data="{ activeItem: '' }" x-init="
     // Extract the path from the URL
     activeItem = window.location.pathname.replace('/', '') || 'home';
 ">
-    <div class="h-full px-3 py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 text-sm">
-        <ul class="space-y-2 font-medium">
+    <div class="h-full px-3 w-full py-4 overflow-y-auto bg-gray-50 dark:bg-gray-800 text-sm">
+        <ul class="space-y-2 font-medium w-full">
             <li>
                 <a href="/"
                    :class="{ 'bg-gray-100 text-collor-qp dark:bg-gray-700': activeItem === 'home' }"
