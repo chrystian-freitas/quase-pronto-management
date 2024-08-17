@@ -21,7 +21,7 @@
         @include('components.toast')
 
         <div class="flex w-full flex-wrap">
-            <div class="flex row flex-grow sm:max-w-sm" id="aside-left">
+            <div class="flex row flex-grow sm:max-w-sm md:max-w-sm" id="aside-left">
                 <div id="menu" class="flex-grow bg-gray-800 text-white grow-1 h-screen">
                     <livewire:menu />
                 </div>
@@ -64,6 +64,7 @@
                     // Show open SVG and hide close SVG
                     svgOpen.classList.remove('hidden');
                     aside.classList.add('sm:max-w-sm');
+                    aside.classList.add('md:max-w-sm');
                     svgClose.classList.add('hidden');
                     aside.classList.add('flex-grow');
 
@@ -71,6 +72,7 @@
                     // Show close SVG and hide open SVG
                     svgOpen.classList.add('hidden');
                     aside.classList.remove('sm:max-w-sm');
+                    aside.classList.remove('md:max-w-sm');
                     menu.classList.add('hidden');
                     svgOpen.classList.remove('max-w-sm');
                     svgClose.classList.remove('hidden');

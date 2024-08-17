@@ -45,7 +45,7 @@ class ListUsers extends Component
                 ->orWhere('email', 'like', '%'.$this->search.'%')
                 ->orWhere('role', 'like', '%'.$this->search.'%')
                 ->orWhere('cpf', 'like', '%'.$this->search.'%')
-                ->paginate()
+                ->paginate(10)
         ]);
     }
 }

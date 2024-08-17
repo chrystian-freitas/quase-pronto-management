@@ -16,18 +16,19 @@ Route::middleware(['auth', 'verified'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::group(['prefix' => 'users'], function () {
-        Route::get('', ListUsers::class)->name('users');
-        Route::get('/create', CreateUser::class)->name('users.create');
-        Route::post('/', [UserController::class, 'store'])->name('users.store');
-        Route::get('/{id}', [UserController::class, 'show'])->name('users.show');
-        Route::get('/{uuid}/edit', function () {
-            return view('pages.edit-user');
-        })->name('users.edit');
-        Route::put('/{id}', [UserController::class, 'update'])->name('users.update');
-        Route::delete('/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+    Route::middleware(['isAdmin'])->group(function () {
+        Route::group(['prefix' => 'users'], function () {
+            Route::get('', ListUsers::class)->name('users');
+            Route::get('/create', CreateUser::class)->name('users.create');
+            Route::post('/', [UserController::class, 'store'])->name('users.store');
+            Route::get('/{id}', [UserController::class, 'show'])->name('users.show');
+            Route::get('/{uuid}/edit', function () {
+                return view('pages.edit-user');
+            })->name('users.edit');
+            Route::put('/{id}', [UserController::class, 'update'])->name('users.update');
+            Route::delete('/{id}', [UserController::class, 'destroy'])->name('users.destroy');
+        });
     });
-
 });
 
 require __DIR__.'/auth.php';
